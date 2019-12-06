@@ -1,6 +1,7 @@
 <?php
 
-// namespace mengsen;
+namespace mengsen;
+
 
 class Util
 {

@@ -1,9 +1,8 @@
 <?php
 
-// namespace mengsen;
+namespace mengsen;
 
-// use Util;
-require("Util.php");
+use mengsen\Util;
 
 class TopClient
 {
