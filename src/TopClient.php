@@ -1,8 +1,8 @@
 <?php
 
-namespace mengsen;
+namespace mengsen\jd;
 
-use mengsen\Util;
+use mengsen\jd\Util;
 
 class TopClient
 {
