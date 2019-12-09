@@ -47,18 +47,13 @@ class TopClient
         $data["sign_method"] = $this->signMethod;
         $data["timestamp"] = date('Y-m-d H:i:s');
         $data['method'] = $url;
-        $data['param_json'] = json_encode($param);
+        $data['param_json'] = json_encode($param, JSON_UNESCAPED_UNICODE);
+
         //生成签名
         $sign = Util::createSign($data, $this->secretKey);
-
-        $strParam = Util::createStrParam($data);
-        $strParam .= 'sign=' . $sign;
-        $url = $this->gatewayUrl . '?' . $strParam;
-
-
-        $result = file_get_contents($url);
+        $data['sign'] = $sign;
+        $result = Util::http($this->gatewayUrl, $data);
         $result = json_decode($result, true);
-
         return $result;
     }
 }
