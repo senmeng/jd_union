@@ -54,6 +54,7 @@ class TopClient
         $data['sign'] = $sign;
         $result = Util::http($this->gatewayUrl, $data);
         $result = json_decode($result, true);
-        return json_decode($result[str_replace(".", "_", $data['method']) . '_response'], true)['result'];
+        $str = str_replace(".", "_", $data['method']) . '_response';
+        return json_decode($result[$str]['result'], true);
     }
 }
